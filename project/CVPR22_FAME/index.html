@@ -1,0 +1,243 @@
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-67FLDMD8N5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-67FLDMD8N5');
+</script>
+
+
+  <!-- head -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Motion-aware Contrastive Video Representation Learning via Foreground-background Merging, FAME">
+  <meta name="description" content="Motion-aware Contrastive Video Representation Learning via Foreground-background Merging. Shuangrui Ding et al. CVPR 2022">
+  <title>Motion-aware Contrastive Video Representation Learning via \\ Foreground-background Merging</title>
+
+  <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+  <script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+  <link rel="stylesheet" type="text/css" href="asset/text.css">
+
+  <meta property="og:image" content="asset/images/icon.png">
+  <meta property="og:title" content="Motion-aware Contrastive Video Representation Learning via Foreground-background Merging, CVPR 2022">
+</head>
+
+
+<body>
+<br>
+<center>
+  <span style="font-size:34px"> 
+  Motion-aware Contrastive Video Representation Learning via Foreground-background Merging</span>
+  </center>
+  <br>
+
+  <table align=center width=720px>
+    <tbody><tr>
+      <td align=center width=120px>
+        <center>
+          <span style="font-size:22px">
+            <a href="https://mark12ding.github.io/" target="_blank">Shuangrui Ding
+            </a><sup>1</sup></span>
+        </center>
+      </td>
+      <td align=center width=120px>
+        <center>
+          <span style="font-size:22px">
+            Maomao Li
+            </a><sup>2</sup></span>
+        </center>
+      </td>
+      <td align=center width=140px>
+        <center>
+          <span style="font-size:22px">
+            <a href="https://tianyu-yang.com/" target="_blank">Tianyu Yang
+          </a><sup>2</sup></span>
+        </center>
+      </td>
+      <td align=center width=140px>
+        <center>
+          <span style="font-size:22px">
+            <a href="https://shvdiwnkozbw.github.io/" target="_blank">Rui Qian
+          </a><sup>3</sup></span>
+        </center>
+      </td>
+    </tr></tbody>
+  </table>
+  <table align=center width=720px>
+    <tbody><tr>
+      <td align=center width=120px>
+        <center>
+          <span style="font-size:22px">
+            Haohang Xu
+            </a><sup>1</sup></span>
+        </center>
+      </td>
+      <td align=center width=120px>
+        <center>
+          <span style="font-size:22px">
+            Qingyi Chen
+            </a><sup>4</sup></span>
+        </center>
+      </td>
+      <td align=center width=140px>
+        <center>
+          <span style="font-size:22px">
+            <a href="https://juewang725.github.io/" target="_blank">Jue Wang
+          </a><sup>2</sup></span>
+        </center>
+      </td>
+      <td align=center width=140px>
+        <center>
+          <span style="font-size:22px">
+            <a href="https://min.sjtu.edu.cn/xhk.htm" target="_blank">Hongkai Xiong
+          </a><sup>1</sup></span>
+        </center>
+      </td>
+    </tr></tbody>
+  </table>
+  <table align=center width=800px>
+    <tbody><tr>
+    <td align=center width=800px>
+      <center>
+        <span style="font-size:16px">
+        <sup>1</sup>Shanghai Jiao Tong University  &nbsp
+        <sup>2</sup>Tencent AI Lab &nbsp
+        <sup>3</sup>The Chinese University of Hong Kong &nbsp
+        <sup>4</sup>University of Michigan
+      </span><br></br>
+      </center>
+    </td></tr>
+  </table>
+  <table align=center width=800px>
+    <tbody><tr>
+      <td align=center width=140px>
+        <center>
+          <span style="font-size:18px">
+            <a href="https://cvpr2022.thecvf.com/" target="_blank">CVPR 2022
+          </a>
+        </span>
+        </center>
+      </td></tr>
+  </table>
+  <br>
+    <center>
+      <div class="container">
+        <div class="row">
+          <center>
+            <img src="asset/images/teaser.png" alt="alt text" style="width: 100%; object-fit: cover; max-width:100%;"></a>
+          </center>
+          </div>
+    </center>
+  </center>
+            
+<hr>
+<center><h1>Abstract</h1></center>
+<div align="justify">
+In light of the success of contrastive learning in the image domain, current self-supervised video representation learning methods usually employ contrastive loss to facilitate video representation learning. When naively pulling two augmented views of a video closer, the model however tends to learn the common static background as a shortcut but fails to capture the motion information, a phenomenon dubbed as background bias. Such bias makes the model suffer from weak generalization ability, leading to worse performance on downstream tasks such as action recognition. To alleviate such bias, we propose \textbf{F}oreground-b\textbf{a}ckground \textbf{Me}rging (FAME) to deliberately compose the moving foreground region of the selected video onto the static background of others. Specifically, without any off-the-shelf detector, we extract the moving foreground out of background regions via the frame difference and color statistics, and shuffle the background regions among the videos. By leveraging the semantic consistency between the original clips and the fused ones, the model focuses more on the motion patterns and is debiased from the background shortcut. Extensive experiments demonstrate that FAME can effectively resist background cheating and thus achieve the state-of-the-art performance on downstream tasks across UCF101, HMDB51, and Diving48 datasets. The code and configurations are released at <a href="https://github.com/Mark12Ding/FAME" target="_blank">here</a>.
+</div>
+<br>
+
+<!-- <hr> -->
+<!-- <center><h1>Video</h1></center> -->
+     <!-- <center>
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/oMcd6maQgQk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+     </center> -->
+<!-- <br> -->
+
+<hr>
+<center><h1>Publications</h1></center>
+
+<script type="text/javascript">
+function show_hide(eid) {
+    var x = document.getElementById(eid);
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+</script>
+
+    <table align="center" width=700px>
+          <tr>
+                <td>
+                    <a href=""><img class="layered-paper-big" style="height:175px" src="./asset/images/FAME_page1.png"/></a>
+                </td>
+
+                <td width=500px>
+                    <span style="font-size:18px">
+                    <div class="title">
+                    <b>Motion-aware Contrastive Video Representation Learning via Foreground-background Merging.</b>
+                    </div>
+
+                    <div class="authors">
+                    Shuangrui Ding,
+                    Maomao Li,
+                    Tianyu Yang,
+                    Rui Qian,
+                    Haohang Xu,
+                    Qingyi Chen,
+                    Jue Wang,
+                    Hongkai Xiong
+                    </div>
+
+                    <div class="conf">
+                    CVPR, 2022
+                    </div>
+
+                    <div class="links">
+                    <a href="javascript:;" onclick="show_hide('BibDing22')"> Bibtex </a> 
+                   | <a href="https://mark12ding.github.io/project/CVPR22_FAME/asset/CVPR22_FAME.pdf"> PDF </a> 
+                   | <a href="https://arxiv.org/abs/2109.15130"> arXiv </a>
+                   | <a href="https://github.com/Mark12Ding/FAME"> Code </a> 
+                   <!-- | <a href="./assets/images/CoCLR-poster-NeurIPS20.pdf"> Poster </a>  -->
+                   <!-- | <a href="https://www.youtube.com/watch?v=oMcd6maQgQk"> Video </a>  -->
+                   <!-- | <a href="http://www.robots.ox.ac.uk/~vgg/publications/2019/Han20/"> All </a> -->
+                    </div>
+
+                    <div style="display: none;" class="BibtexExpand" id="BibDing22">
+                    <div style="width:500px;overflow:visible;">
+                    <pre class="bibtex" style="font-size:12px">
+@inproceedings{ding2022motion,
+  title={Motion-aware Contrastive Video Representation Learning via Foreground-background Merging},
+  author={Ding, Shuangrui and Li, Maomao and Yang, Tianyu and Qian, Rui and
+  &nbsp&nbsp&nbsp&nbsp&nbsp Xu, Haohang and Chen, Qingyi and Wang, Jue and  Xiong, Hongkai},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  address = {New Orleans, LA, USA},
+  month = {June},
+  year={2022}
+}
+                    </pre>
+                    </div>
+                    </div>
+
+                    </span>
+                </td>
+
+          </tr>
+      </table>
+<br><br>
+
+
+<br>
+
+<br>
+<hr>    
+<center><h1>Acknowledgements</h1></center>
+This work is done when Shuangrui Ding was an intern at Tencet AI Lab and was supported in part by the National Natural Science Foundation of China under Grant 61932022, Grant 61720106001, Grant 61971285, Grant 61831018, Grant 61871267, Grant T2122024, and in part by the Program of Shanghai Science and Technology Innovation Project under Grant 20511100100. 
+
+<br><br>
+<br><br>
+
+<p style="text-align:center;font-size:14px;">
+    Webpage template modified from <a href="https://richzhang.github.io/splitbrainauto/">Richard Zhang</a>.
+</p>
+
+
+</body>
+</html>
