@@ -22,7 +22,8 @@
   <script type="text/javascript">google.load("jquery", "1.3.2");</script>
 
   <link rel="stylesheet" type="text/css" href="asset/text.css">
-
+  <link rel="icon" type="image/png" href="asset/images/icon.png">
+  
   <meta property="og:image" content="asset/images/icon.png">
   <meta property="og:title" content="Motion-aware Contrastive Video Representation Learning via Foreground-background Merging, CVPR 2022">
 </head>
@@ -138,7 +139,7 @@
 <hr>
 <center><h1>Abstract</h1></center>
 <div align="justify">
-In light of the success of contrastive learning in the image domain, current self-supervised video representation learning methods usually employ contrastive loss to facilitate video representation learning. When naively pulling two augmented views of a video closer, the model however tends to learn the common static background as a shortcut but fails to capture the motion information, a phenomenon dubbed as background bias. Such bias makes the model suffer from weak generalization ability, leading to worse performance on downstream tasks such as action recognition. To alleviate such bias, we propose \textbf{F}oreground-b\textbf{a}ckground \textbf{Me}rging (FAME) to deliberately compose the moving foreground region of the selected video onto the static background of others. Specifically, without any off-the-shelf detector, we extract the moving foreground out of background regions via the frame difference and color statistics, and shuffle the background regions among the videos. By leveraging the semantic consistency between the original clips and the fused ones, the model focuses more on the motion patterns and is debiased from the background shortcut. Extensive experiments demonstrate that FAME can effectively resist background cheating and thus achieve the state-of-the-art performance on downstream tasks across UCF101, HMDB51, and Diving48 datasets. The code and configurations are released at <a href="https://github.com/Mark12Ding/FAME" target="_blank">here</a>.
+In light of the success of contrastive learning in the image domain, current self-supervised video representation learning methods usually employ contrastive loss to facilitate video representation learning. When naively pulling two augmented views of a video closer, the model however tends to learn the common static background as a shortcut but fails to capture the motion information, a phenomenon dubbed as background bias. Such bias makes the model suffer from weak generalization ability, leading to worse performance on downstream tasks such as action recognition. To alleviate such bias, we propose <b>F</b>oreground-b<b>a</b>ckground <b>Me</b>rging (FAME) to deliberately compose the moving foreground region of the selected video onto the static background of others. Specifically, without any off-the-shelf detector, we extract the moving foreground out of background regions via the frame difference and color statistics, and shuffle the background regions among the videos. By leveraging the semantic consistency between the original clips and the fused ones, the model focuses more on the motion patterns and is debiased from the background shortcut. Extensive experiments demonstrate that FAME can effectively resist background cheating and thus achieve the state-of-the-art performance on downstream tasks across UCF101, HMDB51, and Diving48 datasets. The code and configurations are released at <a href="https://github.com/Mark12Ding/FAME" target="_blank">here</a>.
 </div>
 <br>
 
