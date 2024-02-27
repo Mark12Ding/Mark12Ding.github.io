@@ -30,8 +30,8 @@ title: "SongComposer: A Large Language Model for Lyric and Melody Composition in
 # github_username:  jekyll
 livereload: true
 theme: jekyll-theme-cayman
-github:
-  is_project_page: True
+# github:
+#   is_project_page: True
 
 
 # Exclude from processing.
