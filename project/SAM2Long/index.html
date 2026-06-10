@@ -1,298 +1,220 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-67FLDMD8N5"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-67FLDMD8N5');
-    </script>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Your Paper Keywords">
-    <meta name="description" content="Your Paper Description">
-    <title>SAM2Long: Enhancing SAM 2 for Long Video Segmentation with a Training-Free Memory Tree</title>
-
-    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
-    <script type="text/javascript">google.load("jquery", "1.3.2");</script>
-
-    <link rel="stylesheet" type="text/css" href="asset/text.css">
-    <link rel="icon" type="image/png" href="asset/images/icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="SAM2Long, SAM 2, video object segmentation, long video segmentation, memory tree">
+  <meta name="description" content="SAM2Long enhances SAM 2 for long video segmentation with a training-free memory tree. ICCV 2025.">
+  <title>SAM2Long: Enhancing SAM 2 for Long Video Segmentation with a Training-Free Memory Tree</title>
+  <link rel="stylesheet" href="asset/text.css">
+  <link rel="icon" type="image/png" href="asset/images/icon.png">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-67FLDMD8N5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-67FLDMD8N5');
+  </script>
 </head>
 
 <body>
-    <div style="display: flex; align-items: center;">
-        <img src="asset/images/icon.png" alt="Logo" style="width: 80px; height: 80px; margin-right: 10px;">
-        <span style="font-size:34px">SAM2Long: Enhancing SAM 2 for Long Video Segmentation with a Training-Free Memory Tree</span>
-    </div>
-    <!-- Authors Section -->
-    <table align="center" width="800px">
-        <tr>
-            <td align="center" colspan="5">
-                <table align="center" width="800px">
-                    <tr>
-                        <td align="center" width="200px">
-                            <span style="font-size:22px">
-                                <a href="https://mark12ding.github.io/" target="_blank">Shuangrui Ding</a><sup>1</sup>
-                            </span>
-                        </td>
-                        <td align="center" width="200px">
-                            <span style="font-size:22px">
-                                <a href="https://shvdiwnkozbw.github.io/" target="_blank">Rui Qian</a><sup>1</sup>
-                            </span>
-                        </td>
-                        <td align="center" width="200px">
-                            <span style="font-size:22px">
-                                <a href="https://lightdxy.github.io/" target="_blank">Xiaoyi Dong</a><sup>2</sup>
-                            </span>
-                        </td>
-                        <td align="center" width="200px">
-                            <span style="font-size:22px">
-                                <a href="https://panzhang0212.github.io/" target="_blank">Pan Zhang</a><sup>2</sup>
-                            </span>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td align="center" colspan="5">
-                <table align="center" width="800px">
-                    <tr>
-                        <td align="center" width="200px">
-                            <span style="font-size:22px">
-                                <a href="https://yuhangzang.github.io/" target="_blank">Yuhang Zang</a><sup>2</sup>
-                            </span>
-                        </td>
-                        <td align="center" width="200px">
-                            <span style="font-size:22px">
-                                <a href="https://scholar.google.com/citations?user=sJkqsqkAAAAJ&hl=zh-CN" target="_blank">Yuhang Cao</a><sup>2</sup>
-                            </span>
-                        </td>
-                        <td align="center" width="200px">
-                            <span style="font-size:22px">
-                                <a href="https://guoyww.github.io/" target="_blank">Yuwei Guo</a><sup>1</sup>
-                            </span>
-                        </td>
-                        <td align="center" width="200px">
-                            <span style="font-size:22px">
-                                <a href="http://dahua.site/" target="_blank">Dahua Lin</a><sup>1</sup>
-                            </span>
-                        </td>
-                        <td align="center" width="200px">
-                            <span style="font-size:22px">
-                                <a href="https://myownskyw7.github.io/" target="_blank">Jiaqi Wang</a><sup>2</sup>
-                            </span>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-    <table align="center" width="800px">
-        <tr>
-            <td align="center">
-                <center>
-                    <span style="font-size:16px">
-                        <sup>1</sup>CUHK MMLab&nbsp; <sup>2</sup>Shanghai AI Lab &nbsp;
-                    </span>
-                </center>
-            </td>
-        </tr>
-    </table>
-    <table align="center" width="800px">
-        <tr>
-            <td align="center">
-                <center>
-                    <span style="font-size:20px">
-                        ICCV 2025
-                    </span>
-                </center>
-            </td>
-        </tr>
-    </table>
-    <table align="center" width="800px">
-        <tr>
-            <td align="center">
-                <center>
-                    <span style="font-size:20px">
-                        <a href="https://github.com/Mark12Ding/SAM2Long" target="_blank" style="font-weight: bold;"> [Code] </a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="https://huggingface.co/spaces/Mar2Ding/SAM2Long-Demo" target="_blank" style="font-weight: bold;"> [🤗 Demo] </a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="https://arxiv.org/abs/2410.16268" target="_blank" style="font-weight: bold;"> [arxiv] &nbsp;&nbsp;&nbsp;&nbsp; <a href="asset/images/paper.pdf" target="_blank" style="font-weight: bold;"> [PDF] </a>
-                    </span>
-                </center>
-            </td>
-        </tr>
-    </table>
+  <header class="site-header">
+    <nav class="nav wrap" aria-label="Project navigation">
+      <a class="brand" href="#top">
+        <img src="asset/images/icon.png" alt="">
+        <span>SAM2Long</span>
+      </a>
+      <div class="nav-links">
+        <a href="#demo">Demos</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#citation">Citation</a>
+      </div>
+    </nav>
+  </header>
 
-    <br>
-    <center>
-        <video width="800" controls>
-            <source src="asset/images/FF1_comparsion.mp4" type="video/mp4">
-            Your browser does not support the video tag.
+  <main id="top">
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">ICCV 2025 · Training-free long video segmentation</p>
+        <h1>SAM2Long: Enhancing SAM 2 for Long Video Segmentation with a Training-Free Memory Tree</h1>
+        <p class="lead">
+          SAM2Long improves SAM 2 on complex long videos by keeping multiple memory pathways and selecting robust video-level results through constrained tree search.
+        </p>
+        <div class="actions" aria-label="Project links">
+          <a class="button primary" href="https://github.com/Mark12Ding/SAM2Long">Code</a>
+          <a class="button" href="https://huggingface.co/spaces/Mar2Ding/SAM2Long-Demo">Demo</a>
+          <a class="button" href="https://arxiv.org/abs/2410.16268">arXiv</a>
+          <a class="button" href="https://mark12ding.github.io/project/SAM2Long/asset/images/paper.pdf">PDF</a>
+          <a class="button" href="https://mark12ding.github.io/project/SAM2Long/asset/images/poster.pdf">Poster</a>
+        </div>
+      </div>
+
+      <aside class="authors" aria-label="Authors and affiliations">
+        <div class="author-list">
+          <a href="https://mark12ding.github.io/">Shuangrui Ding<sup>1</sup></a>
+          <a href="https://shvdiwnkozbw.github.io/">Rui Qian<sup>1</sup></a>
+          <a href="https://lightdxy.github.io/">Xiaoyi Dong<sup>2</sup></a>
+          <a href="https://panzhang0212.github.io/">Pan Zhang<sup>2</sup></a>
+          <a href="https://yuhangzang.github.io/">Yuhang Zang<sup>2</sup></a>
+          <a href="https://scholar.google.com/citations?user=sJkqsqkAAAAJ&amp;hl=zh-CN">Yuhang Cao<sup>2</sup></a>
+          <a href="https://guoyww.github.io/">Yuwei Guo<sup>1</sup></a>
+          <a href="http://dahua.site/">Dahua Lin<sup>1</sup></a>
+          <a href="https://myownskyw7.github.io/">Jiaqi Wang<sup>2</sup></a>
+        </div>
+        <p><sup>1</sup>CUHK MMLab · <sup>2</sup>Shanghai AI Laboratory</p>
+      </aside>
+    </section>
+
+    <section class="visual wrap">
+      <figure>
+        <video class="hero-video" controls poster="asset/images/teaser.png">
+          <source src="asset/images/FF1_comparsion.mp4" type="video/mp4">
+          Your browser does not support the video tag.
         </video>
-        <figcaption  style="text-align: center;">
-            FAST and FURIOUS (2001) - Street Race.
-        </figcaption>
-    </center>
-    <br>
-    <center>
-        <video width="800" controls>
+        <figcaption>FAST and FURIOUS (2001) street race: long-range occlusion and reappearance stress test.</figcaption>
+      </figure>
+    </section>
+
+    <section class="metrics wrap" aria-label="Key results">
+      <div>
+        <strong>Training-free</strong>
+        <span>No extra parameters or finetuning.</span>
+      </div>
+      <div>
+        <strong>+3.0 J&amp;F</strong>
+        <span>Average gain over SAM 2 across six VOS benchmarks.</span>
+      </div>
+      <div>
+        <strong>+5.3 J&amp;F</strong>
+        <span>Maximum gain on long-term segmentation benchmarks.</span>
+      </div>
+      <div>
+        <strong>24 / 24</strong>
+        <span>Head-to-head comparisons improved on SA-V and LVOS.</span>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="section-heading">
+        <p class="eyebrow">Overview</p>
+        <h2>Why SAM2Long?</h2>
+      </div>
+      <figure class="figure">
+        <img src="asset/images/teaser.png" alt="Comparison of SAM 2 and SAM2Long on long-term occlusion handling">
+        <figcaption>Comparison of occlusion handling and long-term compatibility between SAM 2 and SAM2Long.</figcaption>
+      </figure>
+      <p class="body-copy">
+        SAM 2's greedy memory selection can accumulate errors: a missed or incorrect mask may influence subsequent frames and become difficult to recover from. SAM2Long keeps several plausible segmentation pathways, scores them over time, and selects branches that remain reliable across long videos.
+      </p>
+    </section>
+
+    <section class="section wrap" id="demo">
+      <div class="section-heading">
+        <p class="eyebrow">Demos</p>
+        <h2>Long-video cases</h2>
+      </div>
+      <div class="video-grid">
+        <figure>
+          <video controls>
             <source src="asset/images/apt_comparison.mp4" type="video/mp4">
             Your browser does not support the video tag.
-        </video>
-        <figcaption  style="text-align: center;">
-            Official Music Video of APT by ROSÉ & Bruno Mars.
-        </figcaption>
-    </center>
-    <br>
-    <center>
-        <video width="800" controls>
+          </video>
+          <figcaption>APT official music video by ROSÉ and Bruno Mars.</figcaption>
+        </figure>
+        <figure>
+          <video controls>
             <source src="asset/images/blackpink_comparison.mp4" type="video/mp4">
             Your browser does not support the video tag.
-        </video>
-        <figcaption  style="text-align: center;">
-            Dance Practice Video of Pink Venom (2022).
-        </figcaption>
-    </center>
-    <br>
-    <center>
-        <video width="800" controls>
+          </video>
+          <figcaption>Pink Venom dance practice video.</figcaption>
+        </figure>
+        <figure>
+          <video controls>
             <source src="asset/images/touch_of_evil.mp4" type="video/mp4">
             Your browser does not support the video tag.
-        </video>
-        <figcaption  style="text-align: center;">
-            A long take from Touch of Evil (1958).
-        </figcaption>
-    </center>
-    <br>
-    <center>
-        <video width="800" controls>
+          </video>
+          <figcaption>A long take from Touch of Evil (1958).</figcaption>
+        </figure>
+        <figure>
+          <video controls>
             <source src="asset/images/harrypotter.mp4" type="video/mp4">
             Your browser does not support the video tag.
+          </video>
+          <figcaption>A Quidditch match from Harry Potter and the Philosopher's Stone (2001).</figcaption>
+        </figure>
+      </div>
+      <figure class="figure demo-video">
+        <video controls>
+          <source src="asset/images/SAM2Long_demo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
         </video>
-        <figcaption  style="text-align: center;">
-            A Quidditch match from Harry Potter and the Philosopher's Stone (2001).
+        <figcaption>Project demo video.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section wrap" id="method">
+      <div class="section-heading">
+        <p class="eyebrow">Method</p>
+        <h2>Memory tree search</h2>
+      </div>
+      <figure class="figure">
+        <img src="asset/images/pipeline.png" alt="SAM2Long method pipeline">
+        <figcaption>
+          SAM2Long maintains multiple memory pathways, selects high-scoring masks at each step, and preserves diverse branches when predictions are uncertain.
         </figcaption>
-    </center>
+      </figure>
+      <p class="body-copy">
+        The method treats long video segmentation as a video-level decision problem rather than a frame-by-frame greedy update. By balancing certainty and diversity, the memory tree can recover from temporary ambiguity, occlusion, and object reappearance without retraining SAM 2.
+      </p>
+    </section>
 
+    <section class="section wrap" id="results">
+      <div class="section-heading">
+        <p class="eyebrow">Results</p>
+        <h2>Consistent gains across settings</h2>
+      </div>
+      <figure class="figure">
+        <img src="asset/images/performance.png" alt="SAM2Long performance across datasets and model sizes">
+        <figcaption>SAM2Long consistently improves SAM 2 across model sizes and datasets.</figcaption>
+      </figure>
+    </section>
 
-
-
-    <!-- Teaser Figure -->
-    <br>
-    <center>
-        <div class="container">
-            <div class="row">
-                <figure>
-                    <img src="asset/images/teaser.png" alt="Teaser Figure" style="width: 100%; max-width: 900px; height: auto;">
-                    <figcaption style="text-align: center; font-size: 16px; margin-top: 10px;">
-                        <b>Fig 1:</b> Comparison of occlusion handling and long-term compatibility between SAM 2 and SAM2Long.
-                    </figcaption>
-                </figure>
-            </div>
-        </div>
-    </center>
-    <!-- Abstract Section -->
-    <hr>
-    <center><h1>Abstract</h1></center>
-    <div align="justify">
-        <!-- Add your abstract content here -->
-       SAM 2's greedy-selection memory design suffers from the "error accumulation" problem, where an errored or missed mask will cascade and influence the segmentation of the subsequent frames, which limits the performance of SAM 2 toward complex long-term videos. To this end, we introduce SAM2Long, an improved <b>training-free</b> video object segmentation strategy, that considers segmentation uncertainty and selects optimal video-level results through a constrained tree search. SAM2Long maintains multiple segmentation pathways, selecting branches with higher cumulative scores at each frame. This heuristic design ensures robustness against occlusions and object reappearances. Without additional parameters or further training, SAM2Long significantly outperforms SAM 2 on six VOS benchmarks, achieving an average improvement of 3.0 points and up to 5.3 points in J&F across all 24 head-to-head comparisons on long-term segmentation benchmarks SA-V and LVOS.
-    </div>
-    <br>
-
-    <!-- Video Demo Section -->
-    <hr>
-    <center><h1>Demo Video</h1></center>
-    <center>
-        <video width="800" controls>
-            <source src="asset/images/SAM2Long_demo.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </center>
-    <br>
-    
-    <!-- Pipeline Section -->
-    <hr>
-    <center><h1>Method Pipeline</h1></center>
-    <center>
-        <img src="asset/images/pipeline.png" alt="Pipeline" style="width: 100%; max-width: 800px; height: auto;">
-        <figcaption style="text-align: center; font-size: 16px; margin-top: 10px;">
-            <b>Fig 2:</b> (a) The pipeline maintains multiple memory pathways, selecting the highest-scoring masks at each step. 
-            (b) Masks are chosen based on certainty; if uncertain, diverse masks are selected to avoid errors.
-        </figcaption>
-    </center>
-    <br>
-    <!-- Pipeline Section -->
-    <hr>
-    <center><h1>Main Result</h1></center>
-    <center>
-        <img src="asset/images/performance.png" alt="performance" style="width: 100%; max-width: 800px; height: auto;">
-        <figcaption style="text-align: center; font-size: 20px; margin-top: 10px;">
-            SAM2Long consistently improves SAM2 over all model sizes and datasets.
-        </figcaption>
-    </center>
-    <br>
-
-    <hr>
-    <center><h1>Publications</h1></center>
-
-    <script type="text/javascript">
-    function show_hide(eid) {
-        var x = document.getElementById(eid);
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
-      }
-    </script>
-    <table align="center" width="700px">
-        <tr>
-            <td>
-                <a href=""><img class="layered-paper-big" style="height:175px" src="asset/images/sam2long_page1.png"/></a>
-            </td>
-            <td width="500px">
-                <span style="font-size:18px">
-                    <div class="title"><b>SAM2Long: Enhancing SAM 2 for Long Video Segmentation with a Training-Free Memory Tree</b></div>
-                    <div class="authors">Shuangrui Ding, Rui Qian, Xiaoyi Dong, Pan Zhang, Yuhang Zang, Yuhang Cao, Yuwei Guo, Dahua Lin, Jiaqi Wang </div>
-                    <div class="conf">preprint, 2024</div>
-                    <div class="links">
-                        <a href="javascript:;" onclick="show_hide('BibEntry')"> Bibtex </a> 
-                        | <a href="asset/images/paper.pdf"> PDF </a> 
-                        | <a href="https://arxiv.org/abs/2410.16268"> arXiv </a>
-                        | <a href="https://github.com/Mark12Ding/SAM2Long"> Code </a>
-                    </div>
-                    <div style="display: none;" class="BibtexExpand" id="BibEntry">
-                        <div style="width:500px;overflow:visible;">
-                            <pre class="bibtex" style="font-size:12px">
-@article{ding2024sam2long,
+    <section class="section wrap" id="citation">
+      <div class="section-heading">
+        <p class="eyebrow">Paper</p>
+        <h2>Citation</h2>
+      </div>
+      <article class="paper-card">
+        <a href="https://mark12ding.github.io/project/SAM2Long/asset/images/paper.pdf" aria-label="Open SAM2Long paper PDF">
+          <img src="asset/images/sam2long_page1.png" alt="First page of the SAM2Long paper">
+        </a>
+        <div>
+          <h3>SAM2Long: Enhancing SAM 2 for Long Video Segmentation with a Training-Free Memory Tree</h3>
+          <p>Shuangrui Ding, Rui Qian, Xiaoyi Dong, Pan Zhang, Yuhang Zang, Yuhang Cao, Yuwei Guo, Dahua Lin, Jiaqi Wang. <em>ICCV 2025.</em></p>
+          <div class="links">
+            <a href="https://arxiv.org/abs/2410.16268">arXiv</a>
+            <a href="https://mark12ding.github.io/project/SAM2Long/asset/images/paper.pdf">PDF</a>
+            <a href="https://github.com/Mark12Ding/SAM2Long">Code</a>
+          </div>
+          <details>
+            <summary>BibTeX</summary>
+            <pre><code>@inproceedings{ding2025sam2long,
   title={SAM2Long: Enhancing SAM 2 for Long Video Segmentation with a Training-Free Memory Tree},
   author={Ding, Shuangrui and Qian, Rui and Dong, Xiaoyi and Zhang, Pan and Zang, Yuhang and Cao, Yuhang and Guo, Yuwei and Lin, Dahua and Wang, Jiaqi},
-  journal={arXiv preprint arXiv:2410.16268},
-  year={2024}
-}
-                            </pre>
-                        </div>
-                    </div>
-                </span>
-            </td>
-        </tr>
-    </table> 
-    <br><br>
+  booktitle={ICCV},
+  year={2025}
+}</code></pre>
+          </details>
+        </div>
+      </article>
+    </section>
+  </main>
 
-    <!-- Acknowledgements Section -->
-    <!-- <hr>
-    <center><h1>Acknowledgements</h1></center>
-    <div align="justify">
-        Add your acknowledgements content here
-        This work was supported by...
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Webpage template inspired by <a href="https://richzhang.github.io/splitbrainauto/">Richard Zhang</a>.</p>
     </div>
-    <br><br> -->
-
-    <p style="text-align:center;font-size:14px;">
-        Webpage template modified from <a href="https://richzhang.github.io/splitbrainauto/">Richard Zhang</a>.
-    </p>
+  </footer>
 </body>
 </html>
