@@ -323,65 +323,10 @@ time {
   white-space: nowrap;
 }
 
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.feature-card {
-  display: grid;
-  min-height: 100%;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--surface);
-  box-shadow: 0 12px 30px rgba(21, 36, 61, 0.05);
-}
-
-.feature-card.wide {
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  grid-column: span 2;
-}
-
-.feature-media {
-  display: block;
-  min-height: 210px;
-  background: var(--surface-soft);
-}
-
-.feature-media:hover,
-.feature-media:focus {
-  text-decoration: none;
-}
-
-.feature-media img {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: contain;
-  padding: 14px;
-}
-
-.feature-card:not(.wide) .feature-media img {
-  aspect-ratio: 1.75 / 1;
-}
-
-.feature-body {
-  padding: 22px;
-}
-
-.feature-body h3 a,
 .paper h3 {
   color: var(--ink);
 }
 
-.feature-body h3 a:hover,
-.feature-body h3 a:focus {
-  color: var(--blue);
-}
-
-.feature-body p:last-child,
 .paper p:last-child,
 .news-list p:last-child,
 .simple-list li:last-child {
@@ -479,27 +424,34 @@ time {
   margin-bottom: 0;
 }
 
-.degree-timeline {
+.timeline-entry {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 16px;
   align-items: start;
 }
 
-.degree-dates {
-  display: grid;
-  gap: 28px;
+.timeline-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  padding: 7px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
 }
 
-.degree-list {
-  display: grid;
-  gap: 12px;
+.timeline-logo.wide-logo {
+  width: 46px;
+  padding: 6px;
 }
 
-.degree-row {
-  padding-left: 14px;
-  border-left: 3px solid var(--line);
-}
-
-.degree-row p {
-  margin-bottom: 4px;
+.timeline-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .split {
@@ -571,10 +523,6 @@ time {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .feature-card.wide {
-    grid-template-columns: 1fr;
-    grid-column: span 1;
-  }
 }
 
 @media (max-width: 680px) {
@@ -619,7 +567,6 @@ time {
   }
 
   .metrics,
-  .feature-grid,
   .paper,
   .timeline article,
   .news-list article,
@@ -628,10 +575,6 @@ time {
   }
 
   .metric {
-    min-height: auto;
-  }
-
-  .feature-media {
     min-height: auto;
   }
 
