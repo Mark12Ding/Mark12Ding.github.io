@@ -344,6 +344,45 @@ time {
   color: var(--blue);
 }
 
+.paper-metrics {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.links .metric-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 28px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 780;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform 150ms ease, filter 150ms ease;
+}
+
+.links .metric-badge:hover,
+.links .metric-badge:focus {
+  filter: brightness(0.97);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.links .citation-badge {
+  color: #165f49;
+  background: #ccebd9;
+  box-shadow: inset 0 0 0 1px rgba(22, 95, 73, 0.12);
+}
+
+.links .star-badge {
+  color: #114f8d;
+  background: #cbe3ff;
+  box-shadow: inset 0 0 0 1px rgba(17, 79, 141, 0.12);
+}
+
 .two-column {
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
